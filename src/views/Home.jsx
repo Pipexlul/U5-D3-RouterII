@@ -13,7 +13,7 @@ const Home = () => {
       </div>
       <div className="flex justify-center items-center">
         <img
-          alt="Foto de bosque estilizado"
+          alt="Foto de pokeball"
           src={logo}
           className="max-w-[60%] h-auto object-cover"
         />

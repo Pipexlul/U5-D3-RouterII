@@ -2,6 +2,9 @@ import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
 
 import Home from "./views/Home";
 import Root from "./views/Root";
+import PokemonBrowser from "./views/PokemonBrowser";
+
+import { generationsLoader } from "./loaders/PokemonLoaders";
 
 const router = createHashRouter([
   {
@@ -16,6 +19,11 @@ const router = createHashRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/pokemons",
+        element: <PokemonBrowser />,
+        loader: generationsLoader,
       },
     ],
   },
