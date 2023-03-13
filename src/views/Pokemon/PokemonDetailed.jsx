@@ -5,8 +5,6 @@ import { PokemonContext } from "../../contexts/PokemonContext";
 
 import PokemonFullCard from "../../components/PokemonBrowser/PokemonFullCard";
 
-import { capitalizeString } from "../../utils/stringUtils";
-
 const PokemonDetailed = () => {
   const { pokemonData } = useContext(PokemonContext);
 
@@ -31,9 +29,9 @@ const PokemonDetailed = () => {
     );
     if (!pokemonDataInDB) {
       setErrorMessage(
-        `No se encontró el pokemon ${pokeName} en la generación ${capitalizeString(
-          genName
-        )}. ¿Seguro que escribiste el nombre bien?`
+        `No se encontró el pokemon ${pokeName} en la Generación ${genName
+          .slice(11)
+          .toUpperCase()}. ¿Seguro que escribiste el nombre bien?`
       );
 
       return;
