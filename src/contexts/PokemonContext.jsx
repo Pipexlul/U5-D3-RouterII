@@ -62,6 +62,8 @@ const PokemonContextProvider = ({ children }) => {
     if (lastGen) {
       setGenInformation(pokemonData[lastGen]);
       setIsLoadingGen(false);
+
+      console.log(pokemonData);
     }
   }, [pokemonData]);
 
@@ -130,6 +132,7 @@ const PokemonContextProvider = ({ children }) => {
         firstClick,
         pokemonData,
         pokemonDataDispatch,
+        lastGen,
       }}
     >
       {children}

@@ -3,6 +3,7 @@ import { createHashRouter, RouterProvider, Navigate } from "react-router-dom";
 import Home from "./views/Home";
 import Root from "./views/Root";
 import PokemonBrowser from "./views/PokemonBrowser";
+import PokemonDetailed from "./views/Pokemon/PokemonDetailed";
 
 import { generationsLoader } from "./loaders/PokemonLoaders";
 
@@ -24,6 +25,10 @@ const router = createHashRouter([
         path: "/pokemons",
         element: <PokemonBrowser />,
         loader: generationsLoader,
+      },
+      {
+        path: "/pokemons/:genName/:pokeName",
+        element: <PokemonDetailed />,
       },
     ],
   },
