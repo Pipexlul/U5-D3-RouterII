@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+import PokemonContextProvider from "../contexts/PokemonContext";
+
 import { navData } from "../data/navlinks.json";
 
 const Root = () => {
@@ -15,7 +17,9 @@ const Root = () => {
         textLinkColor="text-fuchsia-400"
         navLinks={navData}
       />
-      <Outlet />
+      <PokemonContextProvider>
+        <Outlet />
+      </PokemonContextProvider>
       <Footer />
     </div>
   );

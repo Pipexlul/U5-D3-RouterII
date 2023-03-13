@@ -1,11 +1,18 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 
 import PokemonGenButton from "../components/PokemonBrowser/PokemonGenButton";
+import FetcherComponent from "../components/Meta/FetcherComponent";
+import LoadingSpinner from "../components/LoadingSpinner";
+import PokemonList from "../components/PokemonBrowser/PokemonList";
+
+import { PokemonContext } from "../contexts/PokemonContext";
 
 const PokemonBrowser = () => {
   const { results } = useLoaderData();
 
-  console.log(results);
+  const { genInformation, isLoadingGen, firstClick } =
+    useContext(PokemonContext);
 
   return (
     <main className="overflow-hidden bg-gray-900 flex flex-col gap-y-3 items-center">
@@ -20,10 +27,25 @@ const PokemonBrowser = () => {
                 key={idx}
                 label={`Gen ${genData.name.slice(11).toUpperCase()}`}
                 fullName={genData.name}
+                url={genData.url}
               />
             )
         )}
       </div>
+
+      {firstClick && genInformation !== undefined && (
+        <FetcherComponent
+          isLoading={isLoadingGen}
+          loadingComp={
+            <LoadingSpinner
+              fillColor="fill-red-400"
+              width="w-20"
+              height="h-20"
+            />
+          }
+          dataComp={<PokemonList pokemonArray={genInformation} />}
+        />
+      )}
     </main>
   );
 };
