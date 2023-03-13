@@ -1,0 +1,14 @@
+{
+  "navData": [
+    {
+      "name": "home",
+      "label": "Home",
+      "path": "/home"
+    },
+    {
+      "name": "pokemons",
+      "label": "Pokemons",
+      "path": "/pokemons"
+    }
+  ]
+}
